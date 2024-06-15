@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/99394fa4c1.js" crossorigin="anonymous"></script>
-    
 </head>
-<body class="bg-slate-950">
+<body class="bg-slate-900">
     <nav class="p-5">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-cyan-400 text-4xl font-bold mx-4">Astro Nexus</h1>
@@ -27,7 +25,7 @@
                     <li><a class="hover:text-teal-400" href="">Planets</a></li>
                     <li><a class="hover:text-teal-400" href="">Space Missions</a></li>
                     <li><a class="hover:text-teal-400" href="">Articles</a></li>
-                    <li><button onclick="handlelogout()" class="hover:text-teal-400" href="">Logout</button></li>
+                    <li><button onclick="my_modal_3.showModal()" class="hover:text-teal-400">Login</button></li>
                 </ul>
             </div>
         </div>
@@ -37,66 +35,53 @@
                 <li><a class="hover:text-teal-400 block px-4 py-2" href="">Planets</a></li>
                 <li><a class="hover:text-teal-400 block px-4 py-2" href="">Space Missions</a></li>
                 <li><a class="hover:text-teal-400 block px-4 py-2" href="">Articles</a></li>
-                <li><button onclick="handlelogout()" class="hover:text-teal-400 block px-4 py-2" href="">Logout</button></li>
+                <li><button onclick="handleLogout()" class="hover:text-teal-400 block px-4 py-2" href="">Logout</button></li>
             </ul>
         </div>
     </nav>
-    <div class="flex justify-center m-auto" >
-        <a href="./updateProfile.html"><button class="rounded-full bg-slate-800 text-white p-4 "   >Update Your Profile</button></a>
+   
+    <!-- form starts here -->
+
+    <div class="grid place-items-center my-10" >
+        <h1 class="text-center text-2xl font-bold m-4 text-white" >Update Profile</h1>
+        <div id="form" >
+        
+       </div>
     </div>
-    <div class="flex flex-col items-center py-5 border-slate-600">
-        <i class="fa-solid fa-user text-9xl text-center mx-auto border border-2 rounded-full border-cyan-400 p-9"></i>
-        <h1 id="profileName" class="text-center text-2xl text-white my-2 font-semibold" ></h1>
-        <h1 id="username" class="text-center text-sm text-white" ></h1>
-        <p id="bio" class="text-center w-64"></p>
-    <hr>
-        <div class=" my-3 w-full p-3">
-            <div class="flex justify-center gap-3 ">
-                <button onclick="loadMyPost(event)" class="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-800 text-xl text-white p-3 rounded-lg hover:bg-slate-800 ">My Posts</button>
-                <button onclick="likedPosts()" class="bg-gradient-to-b from-slate-950 via-slate-950 to-slate-800 hover:bg-slate-800 text-xl text-white p-3 rounded-lg">Liked Posts</button>
-            </div>
 
-        <div id="profileCards">
-           
-
-        </div>
-        <div class="flex justify-center p-8">
-            <button onclick="post.showModal()" class="text-center bg-cyan-400 p-4 rounded-full w-6/12 hover:bg-cyan-600">Publish Article</button>
-        </div>
-          </div>
-      </div>
-
-      <!-- Post form -->
-      <dialog id="post" class="modal">
-        <div class="modal-box bg-slate-800">
+      <!-- submit messege -->
+      <dialog id="modal" class="modal">
+        <div class="modal-box">
           <form method="dialog">
-            <button class="btn btn-sm btn-circle text-white btn-ghost absolute right-2 top-2">✕</button>
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
           </form>
-          <h3 class="font-bold text-lg text-center m-auto text-white">Publish your article</h3>
-          
-
-<form class="max-w-sm mx-auto" onsubmit="Post(event)" >
-    <div class="mb-5">
-      <label for="title" class="block mb-2 text-sm font-medium text-gray-900 text-white">Title</label>
-      <input type="text" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"required />
-    </div>
-    <div class="mb-5">
-      <label for="image" class="block mb-2 text-sm font-medium text-gray-900 text-white">Put the url of your picture. It's okay to leave it blank</label>
-      <input type="text" id="image" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
-    </div>
-    <div class="mb-5">
-      <label for="body" class="block mb-2 text-sm font-medium text-white">Description</label>
-      <input type="text" id="body" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-    </div>
-    <button type="submit" class="text-white bg-cyan-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Post</button>
-  </form>
-  
+          <div class="modal-content p-4" id="submitError">
+            <div class="modal-body">
+              
+              <div class="d-flex justify-content-center ">
+        
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </dialog>
+
+  <div class="modal fade" id="emailMessege" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" class="btn btn-secondary align-self-end" data-bs-dismiss="modal">X</button>
      
-      
-      <!-- footer -->
-      <footer>
+    </div>
+  </div>
+
+
+  
+    
+
+    <footer>
         <footer class="footer p-10 bg-slate-900 text-base-content text-cyan-400">
           
             <nav>
@@ -123,16 +108,15 @@
           
     </footer>
 
+    <script src="auth.js" ></script>
+    <script src="./updateProfile.js" ></script>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
+      const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
     </script>
-    <script src="./profile.js" ></script>
-    <script src="auth.js" ></script>
 </body>
 </html>

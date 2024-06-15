@@ -11,8 +11,8 @@ const loadarticles =()=>{
     fetch('https://astro-nexus-api.onrender.com/Articles/')
     .then(res=>res.json())
     .then(data=> {
-        
         data.forEach((info)=>{
+            console.log(info);
     var div= document.createElement("div");
     div.classList.add('p-4','items-center');
     var user_param= localStorage.getItem("user_id");
@@ -33,6 +33,7 @@ const loadarticles =()=>{
     `
     }
     else{
+
         div.innerHTML=`
         <div class="card lg:card-side shadow-xl w-9/12 lg:w-3/4 m-3">
     <figure class="w-full h-64 lg:h-auto">
