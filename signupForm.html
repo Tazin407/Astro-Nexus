@@ -42,35 +42,72 @@
    
     <!-- form starts here -->
 
-    <div class="grid place-items-center my-10" >
+    <div class="grid place-items-center my-10" onsubmit="handleRegister(event)"  >
         <h1 class="text-center text-2xl font-bold m-4 text-white" >Create your account</h1>
         <h1 class="text-sm text-center text-red-600" >*Please provide your information correctly</h1>
         <form action="" class="my-4 mx-10" >
             <label class="input input-bordered flex items-center gap-2 my-3">
+                 Username
+                <input type="text" id="username" class="grow" placeholder="" required />
+              </label>
+            <label class="input input-bordered flex items-center gap-2 my-3">
                  First Name
-                <input type="text" class="grow" placeholder="" />
+                <input type="text" id="first_name" class="grow" placeholder="" />
               </label>
             <label class="input input-bordered flex items-center gap-2 my-3">
                 Last Name
-                <input type="text" class="grow" placeholder="" />
+                <input type="text" id="last_name" class="grow" placeholder="" />
               </label>
               <label class="input input-bordered flex items-center gap-2 my-3">
                 Email
-                <input type="text" class="grow" placeholder="" />
+                <input type="email" id="email" class="grow" placeholder="" />
+              </label>
+
+              <label class="input input-bordered flex items-center gap-2 my-3">
+                Bio
+                <input type="text" id="bio" class="grow" placeholder="" />
               </label>
               <label class="input input-bordered flex items-center gap-2 my-3">
                 Password
-                <input type="password" class="grow" placeholder="" />
+                <input type="password" id="password" class="grow" placeholder="" />
                 
               </label>
               <label class="input input-bordered flex items-center gap-2 my-3">
                 Confirm Password
-                <input type="password" class="grow" placeholder="" />
+                <input type="password" id="confirm_password" class="grow" placeholder="" />
               </label>
-              <button class="w-full bg-cyan-400 rounded-lg font-bold text-white p-2 my-3" >Sign in</button>
+              <button class="w-full bg-cyan-400 rounded-lg font-bold text-white p-2 my-3" onclick="modal.showModal()" type="submit" >Sign in</button>
        
         </form>
     </div>
+
+      <!-- submit messege -->
+      <dialog id="modal" class="modal">
+        <div class="modal-box">
+          <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+          <div class="modal-content p-4" id="submitError">
+            <div class="modal-body">
+              
+              <div class="d-flex justify-content-center ">
+        
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </dialog>
+
+  <div class="modal fade" id="emailMessege" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" class="btn btn-secondary align-self-end" data-bs-dismiss="modal">X</button>
+     
+    </div>
+  </div>
 
 
      <!-- login form -->
@@ -81,14 +118,14 @@
             <button class="btn btn-sm btn-circle btn-ghost text-white font-bold absolute right-2 top-2">✕</button>
           </form>
           <h3 class="font-bold text-lg m-4 text-white">Login Now</h3>
-          <form action="" class="m-auto" >
+          <form action="" class="m-auto" onsubmit="handleLogin(event)" >
             <label class="input input-bordered flex items-center gap-2 m-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
-                <input type="text" class="grow" placeholder="Username" />
+                <input type="text" class="grow" id="loginEmail" placeholder="email" />
               </label>
               <label class="input input-bordered flex items-center gap-2 m-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clip-rule="evenodd" /></svg>
-                <input type="password" class="grow" value="password" />
+                <input type="password" class="grow" id="loginPassword"  value="password" />
               </label>
               <button type="submit" class="m-4 btn rounded-lg bg-cyan-400 w-11/12 " >Login </button>
               <p class="text-sm text-white m-4">Don't have an account ? Sign in <a href="" class="text-blue-400">here</a></p>
@@ -124,5 +161,7 @@
           
     </footer>
 
+    <script src="auth.js" ></script>
+    <script src="app.js ></script>
 </body>
 </html>
