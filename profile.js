@@ -15,6 +15,21 @@ const loadProfile=()=>{
 }
 loadProfile();
 
+const deletePost =(id)=>{
+
+    fetch(`https://astro-nexus-api.onrender.com/Articles/${id}`,{
+        method :"DELETE",
+        headers : {"content-type": "application/json"},
+        })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log("Deleted");
+        console.log(data);
+    })
+    
+
+}
+
 const loadMyPost=(event)=>{
     parent= document.getElementById("profileCards");
     parent.innerHTML=``;
@@ -44,6 +59,7 @@ const loadMyPost=(event)=>{
         <h2 class="text-sm text-white"> Posted by ${info.author}</h2>
         <p class="text-white text-sm">${info.body}</p>
         <button class="bg-slate-800 text-white p-2 rounded-lg"  >Edit Article</button>
+        <button onclick="deletePost(${info.id})" class="bg-red-800 text-white p-2 rounded-lg"  >Delete Article</button>
     </div>
 </div>
         
