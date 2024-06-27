@@ -74,7 +74,7 @@ const loadMyPost=(event)=>{
 const likedPosts=()=>{
     parent= document.getElementById("profileCards");
     parent.innerHTML=``;
-    fetch(`https://astro-nexus-api.onrender.com/Likes/?user_id=${user_param}`)
+    fetch(`https://astro-nexus-api.onrender.com/Liked_list/?user_id=${user_param}`)
     .then(res=>res.json())
     .then(data=> {
         console.log(data);

@@ -59,8 +59,7 @@ const handleLogin = (event) =>{
         })
         .then((res)=>res.json())
         .then((data)=> {
-            console.log("hello");
-            console.log(data.token);
+            // console.log(data.token);
             if (data.token && data.user_id){
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user_id', data.user_id);
@@ -68,7 +67,8 @@ const handleLogin = (event) =>{
                 
             }
             else if(data.token===undefined){
-                document.getElementById("error").innerText= data
+                console.log(data);
+                alert(data.error);
             }
             else{
                 document.getElementById("error").innerText= data

@@ -61,15 +61,15 @@ const update=(event)=>{
       console.log(info);
 
     fetch(`https://astro-nexus-api.onrender.com/All_Users/${user_param}/`,{
-        // mode: 'no-cors',
-        method :"PUT",
+        method :"PATCH",
         headers : {"content-type": "application/json"},
         body: JSON.stringify(info),
     })
     .then(res=>res.json())
-    // .then(data=>window.location.reload())
+    .then(data=>{
+      window.location.href = "dashboard.html" ;
+    })
     .catch(error => {
-      // Handle error, if any
       console.error('Error:', error);
   });
 }
