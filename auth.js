@@ -78,13 +78,13 @@ const handleLogin = (event) =>{
         
     };
     
-const handlelogout=()=>{
+const handleLogout=()=>{
         fetch(`https://astro-nexus-api.onrender.com/users/logout`)
         // .then((res)=>res.json())
         .then(()=>localStorage.clear())
         .then(()=>window.location.href= "index.html");
         
-    }
+    };
 
 
 
