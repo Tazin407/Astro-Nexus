@@ -1,3 +1,5 @@
+
+
 const getValue=(id)=>{
     value= document.getElementById(id).value;
     return value;
@@ -86,5 +88,32 @@ const handleLogout=()=>{
         
     };
 
+const setNav = ()=>{
+    const user_param=localStorage.getItem("user_id");
+    nav= document.getElementById("mobile-menu");
+    if (user_param){
+        nav.innerHTML=` <ul class="flex gap-5 text-cyan-400">
+                        <li><a class="hover:text-teal-400" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-teal-400" href="./dashboard.html">Profile</a></li>
+                        <li><a class="hover:text-teal-400" href="">Planets</a></li>
+                        <li><a class="hover:text-teal-400" href="">Space Missions</a></li>
+                        <li><a class="hover:text-teal-400" href="./articles.html">Articles</a></li>
+                        <li><button onclick="handleLogout()" class="hover:text-teal-400" href="">Logout</button></li>
+                       
+                    </ul>`;
+    }
+    else{
+        nav.innerHTML=`<ul class="flex gap-5 text-cyan-400">
+                        <li><a class="hover:text-teal-400" href="./index.html">Home</a></li>
+                        <li><a class="hover:text-teal-400" href="#planets">Planets</a></li>
+                        <li><a class="hover:text-teal-400" href="">Space Missions</a></li>
+                        <li><a class="hover:text-teal-400" href="./articles.html">Articles</a></li>
+                        <li><button onclick="my_modal_3.showModal()" class="hover:text-teal-400" href="">Login</button></li>
+                    </ul>`
+    }
+
+   
+};
+setNav();
 
 

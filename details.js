@@ -13,6 +13,7 @@ const loadDetails=()=>{
     fetch(`https://astro-nexus-api.onrender.com/Articles/${param}`)
     .then(res=>res.json())
     .then((data)=>{
+        print(data.author)
         string= getAuthorName(data.author)
             var div = document.createElement("div");
             div.classList.add("p-10");
