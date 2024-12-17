@@ -55,7 +55,7 @@ const loadMyPost=(event)=>{
         <img src="${info.image}" class="object-cover w-full h-full m-auto" alt="Album">
     </figure>
     <div class="card-body">
-        <h2 class="card-title text-2xl text-white hover:text-cyan-400"><a href="authenticatedDetails.html?id=${info.id}">${info.title}</a></h2>
+        <h2 class="card-title text-2xl text-white hover:text-cyan-400"><a href="details.html?id=${info.id}">${info.title}</a></h2>
         <h2 class="text-sm text-white"> Posted by ${info.author}</h2>
         <p class="text-white text-sm">${info.body}</p>
         <button class="bg-slate-800 text-white p-2 rounded-lg"  >Edit Article</button>
@@ -107,7 +107,7 @@ const likedPosts=()=>{
         <img src="${info.image}" class="object-cover w-full h-full m-auto" alt="Album">
     </figure>
     <div class="card-body">
-        <h2 class="card-title text-2xl text-white hover:text-cyan-400"><a href="authenticatedDetails.html?id=${info.id}">${info.title}</a></h2>
+        <h2 class="card-title text-2xl text-white hover:text-cyan-400"><a href="details.html?id=${info.id}">${info.title}</a></h2>
         <h2 class="text-sm text-white"> Posted by ${info.author}</h2>
         <p class="text-white text-sm">${info.body}</p>
     </div>
